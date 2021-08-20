@@ -9,6 +9,10 @@
 # Usage:
 1. Download and unzip upgrade_test_tool.tar.gz
 tar zxf upgrade_test_tool.tar.gz
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+git lfs migrate import --include="*.tar.gz"
+git add .gitattributes 
 sudo apt-get update
 sudo apt-get install docker-io openjdk-8-jdk python3-docker
 sudo chmod 666 /var/run/docker.sock
