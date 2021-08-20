@@ -1,9 +1,0 @@
-<property>
-  <name>javax.jdo.option.ConnectionURL</name>
-  <value>jdbc:derby:;databaseName=/hive/data/metastore_db;create=true</value>
-  <description>JDBC connect string for a JDBC metastore</description>
-</property>
-<property>
-  <name>hive.server2.authentication</name>
-  <value>NOSASL</value>
-</property>
