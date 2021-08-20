@@ -33,6 +33,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
   ```
   sudo apt-get install git-lfs
   git lfs clone https://github.com/Zhuqi1108/DUPTester.git
+  git lfs checkout
   ```
 
   ### Set up DUPTester:
