@@ -1,3 +1,5 @@
+**DUPTester reproduces results in our paper's section 6.1 Table 5.**
+
 # DUPTester
 
 - ./src: The scripts to run stressing or unit upgrade test for all systems to reproduce bugs.
@@ -25,6 +27,7 @@ sudo update-java-alternatives --set /path/to/java/version
 where /path/to/java/version is one of those listed by the previous command (e.g. /usr/lib/jvm/java-7-openjdk-amd64).
 
 # Reproduce results in paper:
+
   ### Set up DUPTester:
   * Run script to install dependencies, and checkout required applications.
     - Note that the dependency installation commands work on ubuntu. You might
@@ -60,24 +63,24 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
   * The unit test required to reproduce failure is already translated and run in Failure Reproduce section.
   * If you want to run the translator for Cassandra:
 
-	1. Copy the unit test java file to DUPTester/test-migrator-based-python/java_files.
-	   Cassandra unit test is located at: applications/cassandra/test/unit/org/apache/cassandra/
-	2. Set upgrade test configuration in DUPTester/test-migrator-based-python/base_file.py
-	   The Configuration includes: old and new version number, number of nodes, number of seeds, and if rolling upgrade required.
-	```
-	old_version = cass_upgrade_path.CassVersion("cassandra", old_version_number)
-	new_version = cass_upgrade_path.CassVersion("cassandra", new_version_number)
-	config = Config(number_of_node, number_of_seed)
-	application_start_interval = 120
-	upgrade_edge = cass_upgrade_path.CassUpgradeEdge(old_version, new_version)
+ 1. Copy the unit test java file to DUPTester/test-migrator-based-python/java_files.
+    Cassandra unit test is located at: applications/cassandra/test/unit/org/apache/cassandra/
+ 2. Set upgrade test configuration in DUPTester/test-migrator-based-python/base_file.py
+    The Configuration includes: old and new version number, number of nodes, number of seeds, and if rolling upgrade required.
+ ```
+ old_version = cass_upgrade_path.CassVersion("cassandra", old_version_number)
+ new_version = cass_upgrade_path.CassVersion("cassandra", new_version_number)
+ config = Config(number_of_node, number_of_seed)
+ application_start_interval = 120
+ upgrade_edge = cass_upgrade_path.CassUpgradeEdge(old_version, new_version)
 
-	test = testClassName(upgrade_edge, config, application_start_interval,
+ test = testClassName(upgrade_edge, config, application_start_interval,
                      "unittest", testName, str(testId))
-	#if rolling upgrade required
-	test.test_rolling_upgrade()
-	#if rolling upgrade not required
-	test.test_upgrade()
-	```
+ #if rolling upgrade required
+ test.test_rolling_upgrade()
+ #if rolling upgrade not required
+ test.test_upgrade()
+ ```
    * Run the script
   ```
   cd DUPTester/test-migrator-based-python
