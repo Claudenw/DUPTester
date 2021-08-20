@@ -23,6 +23,11 @@
   ```
   bash DUPTester-setup.sh
   ```
+  * In order to use docker, you need to add your user to docker group.
+  ```
+  sudo gpasswd -a $USER docker
+  newgrp docker
+  ```
   
   ### Data Verification
   * Run script to verify the data we metioned in paper and obtained from our study.
