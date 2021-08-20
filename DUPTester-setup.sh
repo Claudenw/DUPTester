@@ -6,7 +6,7 @@ sudo apt-get install git-lfs
 git lfs migrate import --include="*.tar.gz"
 git add .gitattributes 
 sudo apt-get update
-sudo apt-get install docker-io python3-docker docker-compose
+sudo apt-get install docker-io python3-docker docker-compose docker.io
 sudo chmod 666 /var/run/docker.sock
 sudo apt-get install ant maven
 sudo apt-get install python3-pip
