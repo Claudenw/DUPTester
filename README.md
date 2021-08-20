@@ -31,6 +31,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
   ### Get Start:
   * Install git lfs first, then clone the repo.
   ```
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
   sudo apt-get install git-lfs
   git lfs clone https://github.com/Zhuqi1108/DUPTester.git
   git lfs checkout
