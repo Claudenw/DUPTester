@@ -44,6 +44,7 @@
   ```
   
   ### Unit test migration
+  * The unit test required to reproduce failure is already migrated and run in Failure Reproduce section.
   * Run script to migrate unit test for Cassandra.
   * It is a tool to migrate cassandra unit test from java to python.
   * It require some maunally works.
