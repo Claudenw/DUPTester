@@ -26,11 +26,12 @@ class UpgradeTestBase:
 
         if not os.path.exists(self.test_dir):
             os.makedirs(self.test_dir)
-            print("Test data is stored in " + self.test_dir )
-            print("If you want to run this test again, remember to clean previous test data.")
+            #print("If you want to run this test again, remember to clean previous test data.")
         else:
-            print("WARN: " + self.test_dir + "exists! Previous test data might not have been cleaned.\n")
+            #print("WARN: " + self.test_dir + "exists! Previous test data might not have been cleaned.\n")
             os.system("sudo rm -rf " + self.test_dir)
+            os.makedirs(self.test_dir)
+        print("Test data is stored in " + self.test_dir )
 
         yml_file = self.upgrade_edge.from_version.start_cluster(self.config, self.test_dir, self.upgrade_edge, self.test_name, self.test_id)
 

@@ -17,7 +17,7 @@ def get_test_dir(upgrade_edge, test_type, test_name):
            upgrade_edge.from_version.version_number + "_to_" + \
            upgrade_edge.target_version.version_number
     
-    if os.path.exists(test_dir):
+    while os.path.exists(test_dir):
         test_dir = test_dir + "x"
     
     return test_dir + "/" + test_name
