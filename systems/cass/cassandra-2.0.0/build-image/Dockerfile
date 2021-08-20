@@ -1,0 +1,23 @@
+FROM openjdk:8-jdk
+
+# 1. General setup. 
+
+# Use supervisor to run multiple processes, in case the target system requires
+# multiple processes. 
+RUN apt-get update && apt-get install -y supervisor vim
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# 2. System setup. 
+
+COPY cassandra-2.0_jzq.tar.gz /cassandra-2.0_jzq.tar.gz
+ADD cass-setup.sh /usr/local/bin/cass-setup.sh
+# This file contains relatively permanent configurations. 
+RUN sh /usr/local/bin/cass-setup.sh
+ENV CASSANDRA_CONFIG /cassandra/conf
+# This file contains all the runtime configurations (configurations that might
+# need to be modified everytime Cassandra is run, e.g., logging level.)
+ADD cassandra-clusternode.sh /usr/local/bin/cassandra-clusternode
+
+# This can be overwritten in docker-compose.yaml by setting command
+EXPOSE 22 9160
+CMD ["/usr/bin/supervisord"]

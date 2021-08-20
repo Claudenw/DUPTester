@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  DC3N1:
+    image: image_hbase_branch-2.2.0-standalone
+    container_name: container_hbase_N1
+    command: bash -c 'sleep 0 && /usr/bin/supervisord'
+    networks:
+      network_branch-2.2.0-standalone_to_branch-2.3.0-standalone_stressTest_dc1ring:
+        ipv4_address: 252.17.1.2
+    volumes:
+        - ./persistent/data/n1data/hbase:/var/lib/hbase
+        - ./persistent/data/n1data/zookeeper:/var/lib/zookeeper
+        - ./persistent/log/n1log:/hbase/logs/
+        - ./persistent/consolelog/n1consolelog:/var/log/supervisor
+    expose:
+      - 8020
+      - 2181
+      - 8080
+      - 8085
+      - 9090
+      - 9095
+      - 16000
+      - 16010
+      - 16030
+      - 16201
+      - 16301
+      - 22
+
+networks:
+    network_branch-2.2.0-standalone_to_branch-2.3.0-standalone_stressTest_dc1ring:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 252.17.1.2/2
+
+

@@ -1,0 +1,51 @@
+
+version: '3'
+
+services:
+
+    hbase-master1:
+        container_name: container_hbase_N1
+        image: image_hbase_branch-2.3.0-single
+        command: bash -c 'sleep 0 && /usr/bin/supervisord'
+        networks:
+            network_branch-2.2.0-single_to_branch-2.3.0-single_stressTest_dc1ring:
+                ipv4_address: 252.17.1.2
+        volumes:
+            - ./persistent/data/n1data/hbase:/var/lib/hbase
+            - ./persistent/data/n1data/zookeeper:/var/lib/zookeeper
+            - ./persistent/log/n1log:/hbase/logs/
+            - ./persistent/consolelog/n1consolelog:/var/log/supervisor
+            - ./persistent/tmp/n1tmp:/tmp
+        ports:
+            - 16000:16000
+            - 16010:16010
+        depends_on:
+            - zookeeper
+
+    zookeeper:
+        image: image_zk_branch-3.6
+        command: bash -c 'sleep 0 && /usr/bin/supervisord'
+        volumes:
+            - ./persistent/data/zkdata:/tmp/zookeeper
+            - ./persistent/log/zklog:/var/log/supervisor
+        restart: always
+        networks:
+            network_branch-2.2.0-single_to_branch-2.3.0-single_stressTest_dc1ring:
+                ipv4_address: 252.17.1.5
+        ports:
+            - 2181:2181
+        environment:
+            ZOO_MY_ID: 1
+        expose:
+            - 2181
+            - 2888
+            - 3888
+            - 8080
+
+networks:
+    network_branch-2.2.0-single_to_branch-2.3.0-single_stressTest_dc1ring:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 252.17.1.1/24
