@@ -1,0 +1,21 @@
+Case,Application,from_version,target_version,isRollingUpgrade,num_nodes,num_seeds,bug_type
+CASSANDRA-15794,cassandra,cassandra-3.11.4,cassandra-4.0-alpha1,0,3,1,Error while loading schema
+CASSANDRA-16258,cassandra,cassandra-3.11.6,cassandra-4.0-alpha1,1,2,1,Unknown request failure reason error code: 3
+CASSANDRA-16264,cassandra,cassandra-2.0.0,cassandra-2.1.0,1,2,1,Unable to gossip with any seeds
+CASSANDRA-16265,cassandra,cassandra-2.0.0,cassandra-2.1.0,1,2,1,No enum constant
+CASSANDRA-16266,cassandra,cassandra-2.0.0,cassandra-2.1.0,1,3,1,java.lang.NullPointerException
+CASSANDRA-16267,cassandra,cassandra-1.1.0,cassandra-1.2.0,0,2,1,java.lang.NullPointerException
+CASSANDRA-16268,cassandra,cassandra-1.1.0,cassandra-1.2.0,1,2,1,Invalid UUID string
+CASSANDRA-16269,cassandra,cassandra-1.1.0,cassandra-1.2.0,1,3,1,java.lang.NumberFormatException
+CASSANDRA-16301,cassandra,cassandra-3.11.6,cassandra-4.0-beta3,0,3,1,ConfigurationException
+CASSANDRA-16292,cassandra,cassandra-3.0.0,cassandra-3.2.0,0,3,1,Unknown column kind during deserialization
+CASSANDRA-16257,cassandra,cassandra-2.1.0,cassandra-2.2,0,10,1,UnknownColumnFamilyException
+HBASE-25239,hbase,branch-2.2.0,master,0,3,1,Failed to become active
+HBASE-24556,hbase,branch-2.2.0-standalone,branch-2.3.0-standalone,0,1,1,No snapshot found
+HBASE-25238,hbase,branch-2.2.0-rc0,branch-2.3.3,0,3,1,Failed to become active
+HBASE-25259,hbase,branch-2.1.1,branch-2.2.0,0,3,1,Failed to become active
+HBASE-24430,hbase,branch-2.2.0-single,branch-2.3.0-single,0,1,1,Failed to become active
+HBASE-25260,hbase,branch-2.0.6,branch-2.1.1,0,3,1,Failed to become active master
+HIVE-24440,hive,2.3.7,3.0.0,0,1,1,Metastore state would be inconsistent
+HIVE-24493,hive,2.1.1,2.3.7,1,1,1,Metastore is not upgraded or corrupt
+KAFKA-10041,kafka,1.1,2.4,0,1,1,No snapshot found

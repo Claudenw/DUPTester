@@ -1,0 +1,10 @@
+version: '3'
+services:
+    COMPILE-N1:
+        container_name: compile-cass
+        image: cass-compile-image
+        command: bash -c '/usr/bin/supervisord'
+        volumes:
+            - ./src/:/compile-src
+
+    

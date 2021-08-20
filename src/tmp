@@ -1,0 +1,381 @@
+******************** Stress Settings ********************
+Command:
+  Type: write
+  Count: 300
+  No Warmup: false
+  Consistency Level: LOCAL_ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: false
+  Thread Count: 200
+  OpsPer Sec: 0
+Population:
+  Sequence: 1..300
+  Order: ARBITRARY
+  Wrap: true
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: null
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V4
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [252.11.1.2]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: keyspace1
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Pptions: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  factory=org.apache.cassandra.thrift.TFramedTransportFactory; truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=SunX509; store-type=JKS; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  Thrift Port: 9160
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: WRITE
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Connected to cluster: dev_cluster, max pending requests per connection 128, max connections per host 8
+Datatacenter: datacenter1; Host: /252.11.1.4; Rack: rack1
+Datatacenter: datacenter1; Host: /252.11.1.3; Rack: rack1
+Datatacenter: datacenter1; Host: /252.11.1.2; Rack: rack1
+Created keyspaces. Sleeping 1s for propagation.
+Sleeping 2s...
+Warming up WRITE with 75 iterations...
+Failed to connect over JMX; not collecting these stats
+Running WRITE with 200 threads for 300 iteration
+Failed to connect over JMX; not collecting these stats
+type       total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,           300,     327,     327,     327,    27.0,    19.9,    69.5,    85.9,    98.8,    98.8,    0.9,  0.00000,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :      327 op/s  [WRITE: 327 op/s]
+Partition rate            :      327 pk/s  [WRITE: 327 pk/s]
+Row rate                  :      327 row/s [WRITE: 327 row/s]
+Latency mean              :   27.0 ms [WRITE: 27.0 ms]
+Latency median            :   19.9 ms [WRITE: 19.9 ms]
+Latency 95th percentile   :   69.5 ms [WRITE: 69.5 ms]
+Latency 99th percentile   :   85.9 ms [WRITE: 85.9 ms]
+Latency 99.9th percentile :   98.8 ms [WRITE: 98.8 ms]
+Latency max               :   98.8 ms [WRITE: 98.8 ms]
+Total partitions          :        300 [WRITE: 300]
+Total errors              :          0 [WRITE: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:00
+
+END
+******************** Stress Settings ********************
+Command:
+  Type: user
+  Count: -1
+  No Warmup: true
+  Consistency Level: QUORUM
+  Target Uncertainty: 0.020
+  Minimum Uncertainty Measurements: 30
+  Maximum Uncertainty Measurements: 200
+  Command Ratios: {insert=3.0}
+  Command Clustering Distribution: clustering=gaussian(1..10)
+  Profile File(s): /cassandra/tools/cqlstress-example.yaml
+Rate:
+  Auto: true
+  Min Threads: 4
+  Max Threads: 1000
+Population:
+  Sequence: 1..1000000
+  Order: ARBITRARY
+  Wrap: true
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: null
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V4
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [252.11.1.2]
+  Is White List: false
+  Datacenter: null
+  Allow server port discovery: false
+Schema:
+  Keyspace: null
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: USER
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+******************** Profile(s) ********************
+  Keyspace Name: stresscql
+  Keyspace CQL: 
+***
+CREATE KEYSPACE stresscql WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+***
+
+  Table Name: typestest
+  Table CQL: 
+***
+CREATE TABLE typestest (
+      name text,
+      choice boolean,
+      date timestamp,
+      address inet,
+      dbl double,
+      lval bigint,
+      ival int,
+      uid timeuuid,
+      value blob,
+      PRIMARY KEY((name,choice), date, address, dbl, lval, ival, uid)
+) 
+  WITH compaction = { 'class':'LeveledCompactionStrategy' }
+***
+
+  Extra Schema Definitions: null
+  Generator Configs:
+    date: Clustering: Uniform:  min=20,max=40;
+    lval: Clustering: Uniform:  min=1,max=4;Identity: Gaussian:  min=1,max=1000,mean=500.500000,stdev=166.500000;
+    name: Size: Uniform:  min=1,max=10;Identity: Uniform:  min=1,max=10;
+  Query Definitions:
+    simple1: CQL:select * from typestest where name = ? and choice = ? LIMIT 100;Fields:samerow;
+    range1: CQL:select * from typestest where name = ? and choice = ? and date >= ? LIMIT 100;Fields:multirow;
+  Token Range Queries:
+    all_columns_tr_query: Columns:*;
+    value_tr_query: Columns:value;
+  Insert Settings:
+    partitions: uniform(1..50)
+    batchtype: LOGGED
+    select: uniform(1..10)/10
+java.lang.RuntimeException: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: /252.11.1.2:9042 (com.datastax.driver.core.exceptions.TransportException: [/252.11.1.2:9042] Cannot connect))
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:148)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:114)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:107)
+	at org.apache.cassandra.stress.StressProfile.maybeCreateSchema(StressProfile.java:224)
+	at org.apache.cassandra.stress.StressProfile.newGenerator(StressProfile.java:689)
+	at org.apache.cassandra.stress.StressProfile.printSettings(StressProfile.java:126)
+	at org.apache.cassandra.stress.settings.StressSettings.lambda$printSettings$1(StressSettings.java:311)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.apache.cassandra.stress.settings.StressSettings.printSettings(StressSettings.java:311)
+	at org.apache.cassandra.stress.Stress.run(Stress.java:95)
+	at org.apache.cassandra.stress.Stress.main(Stress.java:62)
+Caused by: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: /252.11.1.2:9042 (com.datastax.driver.core.exceptions.TransportException: [/252.11.1.2:9042] Cannot connect))
+	at com.datastax.driver.core.ControlConnection.reconnectInternal(ControlConnection.java:239)
+	at com.datastax.driver.core.ControlConnection.connect(ControlConnection.java:86)
+	at com.datastax.driver.core.Cluster$Manager.negotiateProtocolVersionAndConnect(Cluster.java:1649)
+	at com.datastax.driver.core.Cluster$Manager.init(Cluster.java:1567)
+	at com.datastax.driver.core.Cluster.getMetadata(Cluster.java:400)
+	at org.apache.cassandra.stress.util.JavaDriverClient.connect(JavaDriverClient.java:165)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:139)
+	... 10 more
+******************** Stress Settings ********************
+Command:
+  Type: user
+  Count: -1
+  No Warmup: true
+  Consistency Level: QUORUM
+  Target Uncertainty: 0.020
+  Minimum Uncertainty Measurements: 30
+  Maximum Uncertainty Measurements: 200
+  Command Ratios: {simple1=1.0}
+  Command Clustering Distribution: clustering=gaussian(1..10)
+  Profile File(s): /cassandra/tools/cqlstress-example.yaml
+Rate:
+  Auto: true
+  Min Threads: 4
+  Max Threads: 1000
+Population:
+  Distribution: Gaussian:  min=1,max=1000000,mean=500000.500000,stdev=166666.500000
+  Order: ARBITRARY
+  Wrap: false
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: null
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V4
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [252.11.1.2]
+  Is White List: false
+  Datacenter: null
+  Allow server port discovery: false
+Schema:
+  Keyspace: null
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: USER
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+******************** Profile(s) ********************
+  Keyspace Name: stresscql
+  Keyspace CQL: 
+***
+CREATE KEYSPACE stresscql WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+***
+
+  Table Name: typestest
+  Table CQL: 
+***
+CREATE TABLE typestest (
+      name text,
+      choice boolean,
+      date timestamp,
+      address inet,
+      dbl double,
+      lval bigint,
+      ival int,
+      uid timeuuid,
+      value blob,
+      PRIMARY KEY((name,choice), date, address, dbl, lval, ival, uid)
+) 
+  WITH compaction = { 'class':'LeveledCompactionStrategy' }
+***
+
+  Extra Schema Definitions: null
+  Generator Configs:
+    date: Clustering: Uniform:  min=20,max=40;
+    lval: Clustering: Uniform:  min=1,max=4;Identity: Gaussian:  min=1,max=1000,mean=500.500000,stdev=166.500000;
+    name: Size: Uniform:  min=1,max=10;Identity: Uniform:  min=1,max=10;
+  Query Definitions:
+    simple1: CQL:select * from typestest where name = ? and choice = ? LIMIT 100;Fields:samerow;
+    range1: CQL:select * from typestest where name = ? and choice = ? and date >= ? LIMIT 100;Fields:multirow;
+  Token Range Queries:
+    all_columns_tr_query: Columns:*;
+    value_tr_query: Columns:value;
+  Insert Settings:
+    partitions: uniform(1..50)
+    batchtype: LOGGED
+    select: uniform(1..10)/10
+java.lang.RuntimeException: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: /252.11.1.2:9042 (com.datastax.driver.core.exceptions.TransportException: [/252.11.1.2:9042] Cannot connect))
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:148)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:114)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:107)
+	at org.apache.cassandra.stress.StressProfile.maybeCreateSchema(StressProfile.java:224)
+	at org.apache.cassandra.stress.StressProfile.newGenerator(StressProfile.java:689)
+	at org.apache.cassandra.stress.StressProfile.printSettings(StressProfile.java:126)
+	at org.apache.cassandra.stress.settings.StressSettings.lambda$printSettings$1(StressSettings.java:311)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.apache.cassandra.stress.settings.StressSettings.printSettings(StressSettings.java:311)
+	at org.apache.cassandra.stress.Stress.run(Stress.java:95)
+	at org.apache.cassandra.stress.Stress.main(Stress.java:62)
+Caused by: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: /252.11.1.2:9042 (com.datastax.driver.core.exceptions.TransportException: [/252.11.1.2:9042] Cannot connect))
+	at com.datastax.driver.core.ControlConnection.reconnectInternal(ControlConnection.java:239)
+	at com.datastax.driver.core.ControlConnection.connect(ControlConnection.java:86)
+	at com.datastax.driver.core.Cluster$Manager.negotiateProtocolVersionAndConnect(Cluster.java:1649)
+	at com.datastax.driver.core.Cluster$Manager.init(Cluster.java:1567)
+	at com.datastax.driver.core.Cluster.getMetadata(Cluster.java:400)
+	at org.apache.cassandra.stress.util.JavaDriverClient.connect(JavaDriverClient.java:165)
+	at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:139)
+	... 10 more
