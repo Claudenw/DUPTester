@@ -9,6 +9,8 @@ sudo apt-get update
 sudo apt-get install docker-io openjdk-8-jdk python3-docker
 sudo chmod 666 /var/run/docker.sock
 sudo apt-get install ant maven
+sudo apt-get install python3-pip
+pip3 install docker numpy pandas
 
 APP_DIR="$CURR_DIR/applications"
 SYS_DIR="$CURR_DIR/systems"
