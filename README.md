@@ -81,5 +81,4 @@
    * The migrated tests are saved in submit/test-migrator-based-python/migrate_result
    * The generated upgrade tests are saved in submit/src/cass/generated_test
 
-## If you cannot reproduce our results using this repo, 
-## please contact us and we will provide a virtual machine image.
+## If you cannot reproduce our results using this repo, please contact us and we will provide a virtual machine image.
