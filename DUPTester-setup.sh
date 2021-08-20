@@ -26,7 +26,7 @@ git clone https://github.com/apache/zookeeper
 
 cd ..
 echo $APP_DIR/cassandra > $SYS_DIR/cass/cassandra.srclocation
-echo $APP_DIR/hbase > $SYS_DIR/habse/hbase.srclocation
+echo $APP_DIR/hbase > $SYS_DIR/hbase/hbase.srclocation
 echo $APP_DIR/hive > $SYS_DIR/hive/hive.srclocation
 echo $APP_DIR/kafka > $SYS_DIR/kafka/kafka.srclocation
 echo $APP_DIR/zookeeper > $SYS_DIR/zk/zk.srclocation
