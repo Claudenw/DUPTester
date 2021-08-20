@@ -52,7 +52,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
     - 3) and set up a docker cluster to execute the upgrade test.
   * Compilation takes time and sometimes requires special dependencies, so we provide
     compiled tar.gz files.
-  * After the build image is completed, it takes about 5 minutes to execute the test.
+  * After the build image is completed, it takes about 5 minutes to execute a test.
   ```
   cd DUPTester/src
   python3 reproduce_upgrade_bugs.py
