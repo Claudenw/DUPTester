@@ -41,6 +41,7 @@ class Version:
             need_compile = True
             files = os.listdir(target_path)
             for file in files:
+                print(file)
                 if file.find(".tar.gz") != -1:
                     need_compile = False
             if need_compile:
@@ -48,6 +49,12 @@ class Version:
             
             # build the image
             client.images.build(path=target_path, tag=(image_name))
+
+            if need_compile:
+                for file in files:
+                    if file.find(".tar.gz") != -1:
+                        os.system("rm -rf " + target_path + "/" + file)
+
 
     # Use a docker container to compile the source code.
     # So that you can easily switch between compile dependencies for different versions.
