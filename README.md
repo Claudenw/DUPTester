@@ -28,6 +28,13 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
 
 # Reproduce results in paper:
 
+  ### Get Start:
+  * Install git lfs first, then clone the repo.
+  ```
+  sudo apt-get install git-lfs
+  git lfs clone https://github.com/Zhuqi1108/DUPTester.git
+  ```
+
   ### Set up DUPTester:
   * Run script to install dependencies, and checkout required applications.
     - Note that the dependency installation commands work on ubuntu. You might
