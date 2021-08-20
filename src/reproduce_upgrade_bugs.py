@@ -42,22 +42,22 @@ def reproCases():
         new_version = cass.cass_upgrade_path.CassVersion(application, target_version)
     elif abbr == "hbase":
         zk_version = upgrade_path.Version("zookeeper", "branch-3.6")
-        zk_version.build_docker_image(False)
+        zk_version.build_docker_image(True)
         old_version = hbase.hbase_upgrade_path.HbaseVersion(application, from_version)
         new_version = hbase.hbase_upgrade_path.HbaseVersion(application, target_version)
     elif abbr == "hive":
         hdfs_version = upgrade_path.Version("hdfs", "hdfs_for_hive")
-        hdfs_version.build_docker_image(False)
+        hdfs_version.build_docker_image(True)
         hdfs_version = upgrade_path.Version("hdfs", "release-2.9.0")
-        hdfs_version.build_docker_image(False)
+        hdfs_version.build_docker_image(True)
         old_version = hive.hive_upgrade_path.HiveVersion(application, from_version)
         new_version = hive.hive_upgrade_path.HiveVersion(application, target_version)
     else:
         old_version = upgrade_path.Version(application, from_version)
         new_version = upgrade_path.Version(application, target_version)
 
-    old_version.build_docker_image(False)
-    new_version.build_docker_image(False)
+    old_version.build_docker_image(True)
+    new_version.build_docker_image(True)
 
     target_dir = curr_dir + abbr
 
