@@ -10,7 +10,7 @@
 # Evaluation Requirements:
 1. Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
 2. Time distribution: install dependencies and download required git repos - ~20 min, run experiements - ~4 hours.
-3. Java >= 1.8 (OpenJDK and Oracle JVMS have been tested)
+3. Java = 1.8 
 4. Python 3.6+
 5. Python3-pip
 
@@ -39,6 +39,9 @@
   cd DUPTester/src
   python3 reproduce_upgrade_bugs.py
   ```
+  
+  Note: Once compile failed, check if there is a *.tar.gz in build-image directory. If so, it has to be manually deleted before rerun the script.
+  The path of build-image directory has been printed when running the script.
   
   ### Unit test migration
   * The unit test required to reproduce failure is already migrated and run in Failure Reproduce section.
