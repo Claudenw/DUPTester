@@ -17,7 +17,7 @@
 # Getting started:
   ### Set up DUPTester:
   * Run script to install dependencies, and checkout required applications.
-  * The application includes: Cassandra, Hbase, Hive, Kafka, Zookeeper, and Hdfs.
+  * The application includes: Cassandra, Hbase, Hive, Kafka, and Zookeeper.
   * The script will clone the source code of these applications from github.
   * The applications are stored in ./applications
   ```
@@ -28,15 +28,7 @@
   sudo gpasswd -a $USER docker
   newgrp docker
   ```
-  
-  ### Data Verification
-  * Run script to verify the data we metioned in paper and obtained from our study.
-  * And follow the steps to select data you want to verify.
-  ```
-  cd DUPTester/dataVerify
-  python3 dataVerfication.py
-  ```
-  
+
   ### Failure Reproduce
   * Run script to reproduce the failure we detected by using DUPTester.
   * It use docker as the container to run each application, so we need to build image for applications and versions required.
