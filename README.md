@@ -14,6 +14,17 @@
 4. Python 3.6+
 5. Python3-pip
 
+Note:If there are other versions of java in the original system, install openjdk-8-jdk and use java8 by following the steps blow:
+```
+sudo apt-get install openjdk-8-jdk
+```
+List all java versions and switch to java8:
+```
+update-java-alternatives --list
+sudo update-java-alternatives --set /path/to/java/version
+```
+where /path/to/java/version is one of those listed by the previous command (e.g. /usr/lib/jvm/java-7-openjdk-amd64).
+
 # Getting started:
   ### Set up DUPTester:
   * Run script to install dependencies, and checkout required applications.
