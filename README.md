@@ -7,11 +7,12 @@
 - ./test-migrator-based-python: Script to mirgrate Cassandra unit tests from Java to Python, and generate upgrade tests for each unit test.
 
 
-# Requirements:
-1. Java >= 1.8 (OpenJDK and Oracle JVMS have been tested)
-2. Python 3.6+
-3. Python3-pip
-
+# Evaluation Requirements:
+1. Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+2. Time distribution: install dependencies and download required git repos - ~20 min, run experiements - ~4 hours.
+3. Java >= 1.8 (OpenJDK and Oracle JVMS have been tested)
+4. Python 3.6+
+5. Python3-pip
 
 # Getting started:
   ### Set up DUPTester:
@@ -73,4 +74,5 @@
 
    * The migrated tests are saved in submit/test-migrator-based-python/migrate_result
    * The generated upgrade tests are saved in submit/src/cass/generated_test
+
 
