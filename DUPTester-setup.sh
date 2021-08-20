@@ -11,6 +11,7 @@ sudo chmod 666 /var/run/docker.sock
 sudo apt-get install ant maven
 sudo apt-get install python3-pip
 pip3 install docker numpy pandas
+pip3 install astunparse cassandra-driver javalang
 
 APP_DIR="$CURR_DIR/applications"
 SYS_DIR="$CURR_DIR/systems"
