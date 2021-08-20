@@ -41,7 +41,6 @@ class Version:
             need_compile = True
             files = os.listdir(target_path)
             for file in files:
-                print(file)
                 if file.find(".tar.gz") != -1:
                     need_compile = False
             if need_compile:
