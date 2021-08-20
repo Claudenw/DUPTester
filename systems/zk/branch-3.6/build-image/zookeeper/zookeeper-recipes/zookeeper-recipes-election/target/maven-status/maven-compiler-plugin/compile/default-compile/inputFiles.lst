@@ -1,0 +1,3 @@
+/home/zhuqi/submit/systems/zk/branch-3.6/build-image/zookeeper/zookeeper-recipes/zookeeper-recipes-election/src/main/java/org/apache/zookeeper/recipes/leader/LeaderElectionSupport.java
+/home/zhuqi/submit/systems/zk/branch-3.6/build-image/zookeeper/zookeeper-recipes/zookeeper-recipes-election/src/main/java/org/apache/zookeeper/recipes/leader/LeaderElectionAware.java
+/home/zhuqi/submit/systems/zk/branch-3.6/build-image/zookeeper/zookeeper-recipes/zookeeper-recipes-election/src/main/java/org/apache/zookeeper/recipes/leader/LeaderOffer.java
