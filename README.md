@@ -1,6 +1,6 @@
 **DUPTester reproduces results in our paper's section 6.1 Table 5.**
 
-  # Get Start:
+  # Getting started:
   * Install git lfs first, then clone the repo.
   ```
   curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
