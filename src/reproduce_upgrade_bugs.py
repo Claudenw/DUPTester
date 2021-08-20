@@ -70,11 +70,9 @@ def reproCases():
     elif ticket == "CASSANDRA-16301":
         os.system("python3 " + target_dir + "/" + "cass_16301_upgrade_test.py")
     elif ticket == "CASSANDRA-16292":
-        os.system("python3 " + target_dir + "/generated_test/"
-                  + "unitTest_cass_PstmtPersistenceTest_testCachedPreparedStatements_upgrade_test.py")
+        os.system("python3 " + target_dir + "/" + "cass_16292_upgrade_test.py")
     elif ticket == "CASSANDRA-16257":
-        os.system("python3 " + target_dir + "/generated_test/"
-                  + "unitTest_cass_SimpleQueryTest_testTableWithTwoClustering_upgrade_test.py")
+        os.system("python3 " + target_dir + "/" + "cass_16257_upgrade_test.py")
     elif ticket == "HBASE-24556":
         os.system("python3 " + target_dir + "/" + "hbase_24556_upgrade_test.py")
     elif ticket == "HBASE-24430":
