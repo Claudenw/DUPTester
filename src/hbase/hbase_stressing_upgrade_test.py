@@ -20,6 +20,14 @@ class HbaseStressingUpgradeTest(upgrade_test_base.UpgradeTestBase):
             p = subprocess.Popen('docker exec ' + container_name + str(i) + ' bash /hbase/bin/start-hbase.sh > ./reproduce_result/log 2>&1', shell=True)
             p.wait()
 
+        time.sleep(20)
+        if old_version.version_number.find("2.0") != -1 or old_version.version_number.find("2.1") != -1:
+            for i in range(1, self.config.num_nodes + 1):
+                p = subprocess.Popen('docker exec ' + container_name + str(i) + ' rm -rf /tmp/hbase-root >> ./reproduce_result/log 2>&1', shell=True)
+                p.wait()
+            for i in range(1, self.config.num_nodes + 1):
+                p = subprocess.Popen('docker exec ' + container_name + str(i) + ' bash /hbase/bin/start-hbase.sh >> ./reproduce_result/log 2>&1', shell=True)
+                p.wait()
         time.sleep(80)
         # note: implicit dependency: ip is hard coded to use one of the nodes in docker-compose.yml
         p = subprocess.Popen('docker exec ' + main_container_name +
@@ -65,14 +73,20 @@ class HbaseStressingUpgradeTest(upgrade_test_base.UpgradeTestBase):
         for i in range(1, self.config.num_nodes + 1):
             p = subprocess.Popen('docker exec ' + container_name + str(i) + ' bash /hbase/bin/start-hbase.sh >> ./reproduce_result/log 2>&1', shell=True)
             p.wait()
-
+        '''
+        time.sleep(20)
+        if new_version.version_number.find("2.0") != -1 or new_version.version_number.find("2.1") != -1:
+            for i in range(1, self.config.num_nodes + 1):
+                p = subprocess.Popen('docker exec ' + container_name + str(i) + ' rm -rf /tmp/hbase-root >> ./reproduce_result/log 2>&1', shell=True)
+                p.wait()
+        '''
         time.sleep(80)
 
         container_name = 'container_hbase_N1'
 
         p = subprocess.Popen('docker exec ' + container_name +
                              ' /hbase/bin/hbase pe --nomapred --oneCon=true --valueSize=10 --rows=100 randomRead 1 >> ./reproduce_result/log 2>&1', shell=True)
-        time.sleep(60)
+        time.sleep(120)
         p.kill()
 
 

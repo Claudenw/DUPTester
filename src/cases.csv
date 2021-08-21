@@ -13,9 +13,9 @@ CASSANDRA-16257,cassandra,cassandra-2.0.0,cassandra-3.0.0,0,20,1,UnknownColumnFa
 HBASE-25239,hbase,branch-2.2.0,master,0,3,1,Failed to become active
 HBASE-24556,hbase,branch-2.2.0-standalone,branch-2.3.0-standalone,0,1,1,No snapshot found
 HBASE-25238,hbase,branch-2.2.0-rc0,branch-2.3.3,0,3,1,Failed to become active
-HBASE-25259,hbase,branch-2.1.1,branch-2.2.0,0,3,1,Failed to become active
+HBASE-25259,hbase,branch-2.1.1,branch-2.2.0,0,3,1,java.net.UnknownHostException
 HBASE-24430,hbase,branch-2.2.0-single,branch-2.3.0-single,0,1,1,Failed to become active
-HBASE-25260,hbase,branch-2.0.6,branch-2.1.1,0,3,1,Failed to become active master
+HBASE-25260,hbase,branch-2.0.6,branch-2.1.1,0,3,1,java.net.UnknownHostException
 HIVE-24440,hive,2.3.7,3.0.0,0,1,1,Metastore state would be inconsistent
 HIVE-24493,hive,2.1.1,2.3.7,1,1,1,Metastore is not upgraded or corrupt
 KAFKA-10041,kafka,1.1,2.4,0,1,1,No snapshot found
