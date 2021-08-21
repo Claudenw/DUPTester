@@ -1,17 +1,20 @@
 script="$0"
 CURR_DIR="$(dirname $(readlink -f $script))"
 
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install git-lfs
-git lfs migrate import --include="*.tar.gz"
-git add .gitattributes 
 sudo apt-get update
-sudo apt-get install docker-io python3-docker docker-compose docker.io
+sudo apt-get install docker-io 
+sudo apt-get install python3-docker 
+sudo apt-get install docker-compose 
+sudo apt-get install docker.io
 sudo chmod 666 /var/run/docker.sock
 sudo apt-get install ant maven
 sudo apt-get install python3-pip
-pip3 install docker numpy pandas
-pip3 install astunparse cassandra-driver javalang
+pip3 install docker 
+pip3 install numpy 
+pip3 install pandas
+pip3 install astunparse 
+pip3 install cassandra-driver 
+pip3 install javalang
 
 APP_DIR="$CURR_DIR/applications"
 SYS_DIR="$CURR_DIR/systems"
