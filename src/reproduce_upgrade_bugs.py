@@ -65,6 +65,10 @@ def reproCases():
         os.system("python3 " + target_dir + "/" + "cass_16267_upgrade_test.py")
     elif ticket == "CASSANDRA-16264":
         os.system("python3 " + target_dir + "/" + "cass_16264_upgrade_test.py")
+    elif ticket == "CASSANDRA-16266":
+        os.system("python3 " + target_dir + "/" + "cass_16266_upgrade_test.py")
+    elif ticket == "CASSANDRA-16258":
+        os.system("python3 " + target_dir + "/" + "cass_16258_upgrade_test.py")
     elif ticket == "CASSANDRA-16269":
         os.system("python3 " + target_dir + "/" + "cass_16269_upgrade_test.py")
     elif ticket == "CASSANDRA-16301":
