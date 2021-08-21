@@ -37,8 +37,8 @@ class testClassName(upgrade_test_base.UpgradeTestBase):
 
 
 if __name__ == '__main__':
-    old_version = cass_upgrade_path.CassVersion("cassandra", "cassandra-2.0.0")
-    new_version = cass_upgrade_path.CassVersion("cassandra", "cassandra-2.1.0")
+    old_version = cass_upgrade_path.CassVersion("cassandra", "cassandra-2.1.0")
+    new_version = cass_upgrade_path.CassVersion("cassandra", "cassandra-2.2.0")
     config = Config(10, 1)
     application_start_interval = 120
     upgrade_edge = cass_upgrade_path.CassUpgradeEdge(old_version, new_version)
