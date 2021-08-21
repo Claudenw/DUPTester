@@ -4,7 +4,7 @@ services:
 
     DC3N1:
         container_name: container_cass_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_N1
-        image: image_cass_cassandra-4.0-bate3
+        image: image_cass_cassandra-4.0-beta3
         command: bash -c 'sleep 0 && /usr/bin/supervisord'
         networks:
             network_cassandra-3.11.6_to_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_dc1ring:
@@ -31,7 +31,7 @@ services:
 
     DC3N2:
         container_name: container_cass_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_N2
-        image: image_cass_cassandra-4.0-bate3
+        image: image_cass_cassandra-4.0-beta3
         command: bash -c 'sleep 0 && /usr/bin/supervisord'
         networks:
             network_cassandra-3.11.6_to_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_dc1ring:
@@ -60,7 +60,7 @@ services:
 
     DC3N3:
         container_name: container_cass_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_N3
-        image: image_cass_cassandra-4.0-bate3
+        image: image_cass_cassandra-4.0-beta3
         command: bash -c 'sleep 0 && /usr/bin/supervisord'
         networks:
             network_cassandra-3.11.6_to_cassandra-4.0-beta3_DefsTest_testUpdateKeyspace_dc1ring:
