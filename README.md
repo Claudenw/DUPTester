@@ -51,6 +51,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
   ```
   sudo gpasswd -a $USER docker
   newgrp docker
+  sudo chmod 666 /var/run/docker.sock
   ```
 
   ### Failure Reproduce
