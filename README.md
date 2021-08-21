@@ -1,5 +1,14 @@
 **DUPTester reproduces results in our paper's section 6.1 Table 5.**
 
+  # Getting started:
+  * Install git lfs first, then clone the repo.
+  ```
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  sudo apt-get install git-lfs
+  git lfs clone https://github.com/Zhuqi1108/DUPTester.git
+  git lfs checkout
+  ```
+
 # DUPTester
 
 - ./src: The scripts to run stressing or unit upgrade test for all systems to reproduce bugs.
@@ -27,13 +36,6 @@ sudo update-java-alternatives --set /path/to/java/version
 where /path/to/java/version is one of those listed by the previous command (e.g. /usr/lib/jvm/java-7-openjdk-amd64).
 
 # Reproduce results in paper:
-
-  ### Get Start:
-  * Install git lfs first, then clone the repo.
-  ```
-  sudo apt-get install git-lfs
-  git lfs clone https://github.com/Zhuqi1108/DUPTester.git
-  ```
 
   ### Set up DUPTester:
   * Run script to install dependencies, and checkout required applications.
