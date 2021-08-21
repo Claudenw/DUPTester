@@ -799,11 +799,11 @@ def migrate_multiple_tests(fileNames):
     for testMigrator_name in testMigrators.keys():
         if testMigrator_name in pending_migrator:
             testMigrator = testMigrators[testMigrator_name]
-            if testMigrator.parent_name != None and testMigrator.parent_name in pending_migrator:
+            if testMigrator.parent_name != None and testMigrator.parent_name in pending_migrator and testMigrator.parent_name in testMigrators.keys():
                 testMigrator.parent = testMigrators[testMigrator.parent_name]
                 migrate_single_test(testMigrator.parent)
                 pending_migrator.remove(testMigrator.parent_name)
-            elif testMigrator.parent_name != None and testMigrator.parent_name not in pending_migrator:
+            elif testMigrator.parent_name != None and testMigrator.parent_name not in pending_migrator and testMigrator.parent_name in testMigrators.keys():
                 testMigrator.parent = testMigrators[testMigrator.parent_name]
             migrate_single_test(testMigrator)
             pending_migrator.remove(testMigrator.className)
