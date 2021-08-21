@@ -62,6 +62,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
   * Compilation takes time and sometimes requires special dependencies, so we provide
     compiled tar.gz files.
   * After the build image is completed, it takes about 5 minutes to execute a test.
+  * You might need to enter your password at the end of executing each test.
   ```
   cd DUPTester/src
   python3 reproduce_upgrade_bugs.py
