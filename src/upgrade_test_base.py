@@ -63,8 +63,8 @@ class UpgradeTestBase:
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         repo_dir = os.path.join(curr_dir, "reproduce_result", "result")
         os.system("rm " + repo_dir)
-        os.system("sudo grep ERROR -nR " + self.test_dir + " > " + repo_dir )
-        os.system("sudo grep Exception -nR " + self.test_dir + " >> " + repo_dir)
+        os.system("sudo grep ERROR -nRi " + self.test_dir + " > " + repo_dir )
+        os.system("sudo grep Exception -nRi " + self.test_dir + " >> " + repo_dir)
         print("********************test_log_dir: " + self.test_dir )
 
     def test_rolling_upgrade(self):
@@ -101,8 +101,8 @@ class UpgradeTestBase:
             time.sleep(self.application_start_interval)
             try:
                 self.test_new_version(upgraded_nodes_num, True)
-                os.system("sudo grep ERROR -nR " + self.test_dir + " >> " + repo_dir)
-                os.system("sudo grep Exception -nR " + self.test_dir + " >> " + repo_dir)
+                os.system("sudo grep ERROR -nRi " + self.test_dir + " >> " + repo_dir)
+                os.system("sudo grep Exception -nRi " + self.test_dir + " >> " + repo_dir)
             except Exception as e:
                 print("ERROR INFO: " + str(e))
                 pass
