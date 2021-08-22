@@ -16,6 +16,6 @@ HBASE-25238,hbase,branch-2.2.0-rc0,branch-2.3.3,0,3,1,Unexpected exception
 HBASE-25259,hbase,branch-2.1.1,branch-2.2.0,0,3,1,Unexpected exception
 HBASE-24430,hbase,branch-2.2.0-single,branch-2.3.0-single,0,1,1,Unexpected exception
 HBASE-25260,hbase,branch-2.0.6,branch-2.1.1,0,3,1,Unexpected exception
-HIVE-24440,hive,2.3.7,3.0.0,0,1,1,Metastore state would be inconsistent
+HIVE-24440,hive,2.3.7,3.0.0,0,1,1,inconsistent
 HIVE-24493,hive,2.1.1,2.3.7,1,1,1,Metastore is not upgraded or corrupt
 KAFKA-10041,kafka,1.1,2.4,0,1,1,No snapshot found
