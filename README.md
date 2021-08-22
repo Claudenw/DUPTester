@@ -18,7 +18,7 @@
 
 
 # Evaluation Requirements:
-1. Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+1. virtualbox ubnutu 18, Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz, 8G RAM, 50G disk. 
 2. Time distribution: install dependencies and download required git repos - ~30 min, run experiements - ~4 hours.
 3. Java = 1.8
 4. Python 3.6+
