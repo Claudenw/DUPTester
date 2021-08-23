@@ -102,4 +102,7 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
    * The generated upgrade tests are saved in ./src/cass/generated_test
 
 # Special Attention
-If you cannot reproduce our results using this repo, please contact us and we will provide a virtual machine image.
+If you cannot reproduce our results using this repo, here is a virtual machine image we already set up.
+* http://nas.dsrg.utoronto.ca:8080/share.cgi?ssid=0qiFa3K
+* User account: sosp21
+* Password: 111111
