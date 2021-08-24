@@ -25,5 +25,6 @@ repo_dir = os.path.join(curr_dir, "..", "reproduce_result", "result")
 os.system("rm " + repo_dir)
 os.system("sudo grep ERROR -nR " + target_dir + " > " + repo_dir)
 os.system("sudo grep Exception -nR " + target_dir + " >> " + repo_dir)
-print("test_log_dir: " + target_dir )
+cmd = "echo \"test_log_dir: " + target_dir + "\" >> check_result.log"
+os.system(cmd)
 #print("*****************************************************************************************************")

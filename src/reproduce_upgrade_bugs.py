@@ -118,8 +118,15 @@ def reproCases(loop, count=0):
             reproCases(case_number, count)
             return
 
-    print("If you want to check the result, please run: sudo grep \"" + bug_type + "\" -nr + test_log_dir >> check_result.log ")
-    print("************************************************************************************ >> check_result.log")
+    cmd = ""
+    if ticket == "HIVE-24440":
+        cmd += "cp ./reproduce_result/log ./reproduce_result/log_HIVE-24440\n"
+        cmd += "echo  \"If you want to check the result, please run: sudo grep \"" + bug_type + "\" -nr ./reproduce_result/log_HIVE-24440\" >> check_result.log \n"
+    else:
+        cmd += "echo  \"If you want to check the result, please run: sudo grep \"" + bug_type + "\" -nr + test_log_dir\" >> check_result.log \n"
+    cmd += "echo \"Case Number: " + ticket + "\" >> check_result.log\n"
+    cmd += "echo \"************************************************************************************\" >> check_result.log\n"
+    os.system(cmd)
 
     return reproduce_succ, ticket
 
@@ -146,6 +153,8 @@ if __name__ == '__main__':
                     print("         " + case)
             else:
                 print("[Result] : All cases reproduced successfully!!")
+            print("[Note] : If you want to look at the reproduced logs for each case, please follow the instructions in src/check_result.log")
             break
         elif option == 'B':
             reproCases(-1)
+            print("[Note] : If you want to look at the reproduced logs for each case, please follow the instructions in src/check_result.log")

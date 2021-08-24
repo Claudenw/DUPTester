@@ -65,7 +65,8 @@ class UpgradeTestBase:
         os.system("rm " + repo_dir)
         os.system("sudo grep ERROR -nRi " + self.test_dir + " > " + repo_dir )
         os.system("sudo grep Exception -nRi " + self.test_dir + " >> " + repo_dir)
-        print("********************test_log_dir: " + self.test_dir )
+        cmd = "echo \"test_log_dir: " + self.test_dir + "\" >> check_result.log"
+        os.system(cmd)
 
     def test_rolling_upgrade(self):
 
@@ -109,7 +110,8 @@ class UpgradeTestBase:
 
         self.upgrade_edge.target_version.teardown_cluster(yml_file, self.test_dir, self.docker_console_log, self.config)
 
-        print("**************test_log_dir: " + self.test_dir)
+        cmd = "echo \"test_log_dir: " + self.test_dir + "\" >> check_result.log"
+        os.system(cmd)
 
     def test_old_version(self):
         pass
