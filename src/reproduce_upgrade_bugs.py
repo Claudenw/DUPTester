@@ -126,8 +126,8 @@ def reproCases(loop, count=0):
 if __name__ == '__main__':
 
     while True:
-        #option = input("A. Reproduce all failures. \nB. Select the case number you want to reproduce. \nC. Exit\n")
-        option = 'A'
+        option = input("A. Reproduce all failures. \nB. Select the case number you want to reproduce. \nC. Exit\n")
+        #option = 'A'
         if option not in ['A', 'B', 'C']:
             print("Invaild input")
             continue
