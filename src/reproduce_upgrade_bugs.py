@@ -12,13 +12,14 @@ df = dataFrame.fillna('N/A')
 df.set_index("Case")
 curr_dir = os.path.dirname(os.path.abspath(__file__)) + "/"
 
-def reproCases():
-    i = 0
-    for cases in df.index:
-        print(str(cases) + ". " + df.iloc[cases,0])
-        i=i+1
-
-    case_number = int(input("Select the case number(eg. 5):"))
+def reproCases(loop, count=0):
+    i = 20
+    if loop == -1:
+        for cases in df.index:
+            print(str(cases) + ". " + df.iloc[cases,0])
+        case_number = int(input("Select the case number(eg. 5):"))
+    else:
+        case_number = loop
     while case_number<0 or case_number>i:
         print("Invaild input")
         case_number = int(input("Select the case number:"))
@@ -67,6 +68,7 @@ def reproCases():
         os.system("python3 " + target_dir + "/" + "cass_16264_upgrade_test.py")
     elif ticket == "CASSANDRA-16266":
         os.system("python3 " + target_dir + "/" + "cass_16266_upgrade_test.py")
+        #print("16266")
     elif ticket == "CASSANDRA-16258":
         os.system("python3 " + target_dir + "/" + "cass_16258_upgrade_test.py")
     elif ticket == "CASSANDRA-16269":
@@ -104,21 +106,28 @@ def reproCases():
     if bug_type in f.read():
         reproduce_succ = True
 
-    print("*********************************Reproduce Result**********************************")
     if reproduce_succ:
-        print("[Result] : Failure Reproduced Successfully!")
+        print("*********************************Reproduce Result**********************************")
+        print("[Result] : " + ticket + " Failure Reproduced Successfully!")
     else:
-        print("[Result] : Failure Reproduced Failed")
+        if count == 5:
+            print("*********************************Reproduce Result**********************************")
+            print("[Result] : "+ ticket +" Failure Reproduced Failed")
+        else:
+            count += 1
+            reproCases(case_number, count)
+            return
 
-    print("     If you want to check the result, please run: sudo grep \"" + bug_type + "\" -nr + test_log_dir  ")
-    print("************************************************************************************")
+    print("If you want to check the result, please run: sudo grep \"" + bug_type + "\" -nr + test_log_dir >> check_result.log ")
+    print("************************************************************************************ >> check_result.log")
+
+    return reproduce_succ, ticket
 
 if __name__ == '__main__':
 
     while True:
-        option = input("A. Select the case number you want to reproduce. \nB. Manually provide the application and "
-                       "version information. \nC. Exit\n")
-
+        #option = input("A. Reproduce all failures. \nB. Select the case number you want to reproduce. \nC. Exit\n")
+        option = 'A'
         if option not in ['A', 'B', 'C']:
             print("Invaild input")
             continue
@@ -126,6 +135,17 @@ if __name__ == '__main__':
         if option == 'C':
             break
         elif option == 'A':
-            reproCases()
+            failed_case = []
+            for i in range(0, 20):
+                repro_result, ticket = reproCases(i)
+                if repro_result == False:
+                    failed_case.append(ticket)
+            if len(failed_case):
+                print("[Result] : Reproduced Failed Cases: ")
+                for case in failed_case:
+                    print("         " + case)
+            else:
+                print("[Result] : All cases reproduced successfully!!")
+            break
         elif option == 'B':
-            print("TBD")
+            reproCases(-1)
