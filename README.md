@@ -103,6 +103,6 @@ where /path/to/java/version is one of those listed by the previous command (e.g.
 
 # Special Attention
 If you cannot reproduce our results using this repo, here is a virtual machine image we already set up.
-* http://nas.dsrg.utoronto.ca:8080/share.cgi?ssid=0qiFa3K
+* http://nas.dsrg.utoronto.ca:8080/share.cgi?ssid=0Sa7AQ1&fbclid=IwAR2XxgwGi34aP7m-LgnevZBrN4PBW9KRcnTItEtWTNX0s2XpUVP2m3PZykY
 * User account: sosp21
 * Password: 111111
