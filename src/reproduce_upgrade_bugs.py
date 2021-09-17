@@ -115,8 +115,8 @@ def reproCases(loop, count=0):
             print("[Result] : "+ ticket +" Failure Reproduced Failed")
         else:
             count += 1
-            reproduce_succ, ticket = reproCases(case_number, count)
-            return reproduce_succ, ticket
+            reproCases(case_number, count)
+            return True, ticket
 
     cmd = ""
     if ticket == "HIVE-24440":
