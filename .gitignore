@@ -1,0 +1,9 @@
+.idea
+.project
+nohup.out
+*.pyc
+*.log
+*.gz
+*.tar
+systems/cass/**/cassandra/
+

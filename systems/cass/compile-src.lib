@@ -1,0 +1,42 @@
+script="$0"
+
+export BRANCH=`basename $PWD`
+
+if [ ! -d build-image ]
+then
+	echo "directory $PWD/build-image does not exist"
+	exit 1
+fi
+cd build-image
+
+if [ ! -d cassandra ]
+then
+	git clone --depth 1 --branch $BRANCH  https://github.com/apache/cassandra.git cassandra
+	if [ $? -ne 0 ]
+	then
+		echo "git clone failed"
+		exit 1
+	fi
+fi
+
+cd cassandra
+
+git pull origin 
+if [ $? -ne 0 ]
+then
+	echo "git pull failed"
+	exit 1
+fi
+git checkout $BRANCH
+
+ant realclean
+ant
+if [ $? -ne 0 ]
+then
+	echo "ant build failed"
+	exit 1
+fi
+
+cd -
+
+tar -czf cassandra.tar.gz  --exclude-vcs cassandra
