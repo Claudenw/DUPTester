@@ -1,0 +1,12 @@
+
+# set the branch
+
+export WORKING_DIR=$(dirname $0)
+
+if [ "." == ${WORKING_DIR} ]
+then
+    export BRANCH=${PWD}
+else
+    export BRANCH=$(basename ${WORKING_DIR})
+fi
+

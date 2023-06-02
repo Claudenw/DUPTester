@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export BRANCH=`basename $PWD`
-
-docker build -t cass-image-$BRANCH build-image

@@ -1,17 +1,23 @@
-script="$0"
+#!/bin/bash
 
-export BRANCH=`basename $PWD`
 
-if [ ! -d build-image ]
+export GIT="https://github.com/apache/cassandra.git"
+
+if [ -z "$JAVA_HOME" ]
 then
-	echo "directory $PWD/build-image does not exist"
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+fi
+
+if [ ! -d ${WORKING_DIR}/build-image ]
+then
+	echo "directory ${WORKING_DIR}/build-image does not exist"
 	exit 1
 fi
-cd build-image
+cd ${WORKING_DIR}/build-image
 
 if [ ! -d cassandra ]
 then
-	git clone --depth 1 --branch $BRANCH  https://github.com/apache/cassandra.git cassandra
+	git clone --depth 1 --branch $BRANCH  $GIT cassandra
 	if [ $? -ne 0 ]
 	then
 		echo "git clone failed"

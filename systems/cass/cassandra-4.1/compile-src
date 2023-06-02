@@ -1,6 +1,4 @@
 #!/bin/bash
-
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-source ../compile-src.lib
+source $(dirname $0)/../utils.lib
+source $(dirname $0)/../compile-src.lib
 

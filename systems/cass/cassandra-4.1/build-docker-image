@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export BRANCH=`basename $PWD`
+source $(dirname $0)/../utils.lib
 
-docker build --no-cache -t cass-image-$BRANCH build-image
+docker build -t cass-image-$BRANCH $(dirname $0)/build-image
