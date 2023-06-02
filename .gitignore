@@ -6,5 +6,6 @@ nohup.out
 *.gz
 *.tar
 systems/cass/**/cassandra/
+systems/cass/git/
 **/_pycache_/
 

@@ -1,7 +1,19 @@
 #!/bin/bash
 
+if [ ! -d ${WORKING_DIR}/../git ]
+then
+  clone "https://github.com/apache/cassandra.git" ${WORKING_DIR}/../git
+  if [ $? -ne 0 ]
+	then
+		echo "git master clone failed"
+		exit 1
+	fi
+fi
 
-export GIT="https://github.com/apache/cassandra.git"
+cd ${WORKING_DIR}/../git
+git fetch --all --tags
+
+GIT_ARGS="-l ${WORKING_DIR}/../git cassandra"
 
 if [ -z "$JAVA_HOME" ]
 then
@@ -17,7 +29,7 @@ cd ${WORKING_DIR}/build-image
 
 if [ ! -d cassandra ]
 then
-	git clone --depth 1 --branch $BRANCH  $GIT cassandra
+	git clone $GIT_ARGS
 	if [ $? -ne 0 ]
 	then
 		echo "git clone failed"
@@ -27,12 +39,6 @@ fi
 
 cd cassandra
 
-git pull origin 
-if [ $? -ne 0 ]
-then
-	echo "git pull failed"
-	exit 1
-fi
 git checkout $BRANCH
 
 ant realclean
