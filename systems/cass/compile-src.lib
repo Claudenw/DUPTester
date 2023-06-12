@@ -1,5 +1,8 @@
 #!/bin/bash
 
+##
+## clone the master directory if necessary
+##
 if [ ! -d ${WORKING_DIR}/../git ]
 then
   clone "https://github.com/apache/cassandra.git" ${WORKING_DIR}/../git
@@ -10,11 +13,14 @@ then
 	fi
 fi
 
+## update the master directory
 cd ${WORKING_DIR}/../git
 git fetch --all --tags
 
+## ensure that subsequent get calls checkout from the git directory
 GIT_ARGS="-l ${WORKING_DIR}/../git cassandra"
 
+## Set the default java home
 if [ -z "$JAVA_HOME" ]
 then
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
