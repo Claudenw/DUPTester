@@ -1,0 +1,17 @@
+
+# set the branch
+
+function dir_name() {
+  dir=$(dirname $1)
+
+  if [ "." == ${dir} ]
+  then
+      dir=${PWD}
+  fi
+
+  echo $dir
+}
+
+export WORKING_DIR=`dir_name ${PWD}/$0`
+export BRANCH=$(basename ${WORKING_DIR})
+export docker_pfx=$(basename $(dirname  ${WORKING_DIR}))

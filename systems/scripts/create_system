@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function usage() {
+  echo ""
+  echo "USAGE: ${0} <directory> <name>"
+  echo "------------------------------------------------------------------------------------"
+  echo "directory  The directory to be created.  Is also the prefix for the docker images."
+  echo "name       The name of the project being tested.  Must be a valid directory name"
+  echo ""
+  echo "If 'directory' already exists script aborts"
+
+}
+
+source $(dirname $0)/utils.lib
+
+DEST_DIR=$(dirname ${WORKING_DIR})/${1}
+
+if [ -z "${2}" ]
+then
+  usage
+  exit 1
+fi
+
+if [ -d ${DEST_DIR} ]
+then
+  echo "${DEST_DIR} exists"
+  usage
+  exit 1
+fi
+
+mkdir -p ${DEST_DIR}/template/build-image
+touch ${DEST_DIR}/template/build-image/Dockerfile
+
+cat <<END >${DEST_DIR}/config.lib
+#!/bin/bash
+
+export GIT_URL="URL to checkout project from"
+export trunk="usually master or main"
+export name="${2}"
+export build_cmd="echo 'build_cmd not set in config.lib';exit 1"
+END
+
+cp ${WORKING_DIR}/create_version.tpl ${DEST_DIR}/create_version
+chmod ugo+x ${DEST_DIR}/create_version
+
+if [ `grep -c /systems/${1}/git ../../.gitignore` -eq 0 ]
+then
+  echo /systems/${1}1/git >> ../../.gitignore
+fi
+
+if [ `grep -c /systems/${1}/\*\*/${2} ../../.gitignore` -eq 0 ]
+then
+  echo /systems/${1}/\*\*/${2} >> ../../.gitignore
+fi
+
+echo "Edit ${DEST_DIR}/config.lib"

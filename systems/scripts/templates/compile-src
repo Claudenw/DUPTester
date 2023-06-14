@@ -1,0 +1,4 @@
+#!/bin/bash
+source $(dirname $0)/../config.lib
+source $(dirname $0)/../../scripts/utils.lib
+source $(dirname $0)/../../scripts/compile-src.lib

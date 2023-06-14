@@ -8,4 +8,10 @@ nohup.out
 systems/cass/**/cassandra/
 systems/cass/git/
 **/_pycache_/
-
+/systems/flink/**/flink
+/systems/flink/git
+/systems/flink/**/flink
+/systems/flink/**/flink
+/systems/flink/**/flink
+/systems/flink/**/flink
+/systems/flink/**/flink
