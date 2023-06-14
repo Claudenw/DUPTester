@@ -43,14 +43,14 @@ END
 cp ${WORKING_DIR}/create_version.tpl ${DEST_DIR}/create_version
 chmod ugo+x ${DEST_DIR}/create_version
 
-if [ `grep -c /systems/${1}/git ../../.gitignore` -eq 0 ]
+if [ `grep -c /systems/${1}/git ${WORKING_DIR}/../.gitignore` -eq 0 ]
 then
-  echo /systems/${1}1/git >> ../../.gitignore
+  echo /systems/${1}1/git >> ${WORKING_DIR}/../.gitignore
 fi
 
-if [ `grep -c /systems/${1}/\*\*/${2} ../../.gitignore` -eq 0 ]
+if [ `grep -c /systems/${1}/\*\*/${2} ${WORKING_DIR}/../.gitignore` -eq 0 ]
 then
-  echo /systems/${1}/\*\*/${2} >> ../../.gitignore
+  echo /systems/${1}/\*\*/${2} >> ${WORKING_DIR}/../.gitignore
 fi
 
 echo "Edit ${DEST_DIR}/config.lib"
