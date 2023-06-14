@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  foo:
+    image: cass-image-cassandra-4.0.9
+    container_name: cass_N1
+    command: bash -c '/usr/bin/supervisord'
+
+
+    volumes:
+        - /tmp/persistent/data/n1data:/var/lib/cassandra
+        - /tmp/persistent/log/n1log:/var/log/cassandra
+        - /tmp/persistent/consolelog/n1consolelog:/var/log/supervisor
+    environment:
+        - CASSANDRA_CONFIG=/cassandra/conf
+        - CASSANDRA_CLUSTER_NAME=dev_cluster1
+        - CASSANDRA_LOGGING_LEVEL=DEBUG
+    expose:
+        - 7000
+        - 7001
+        - 7199
+        - 9042
+        - 9160
+    ulimits:
+        memlock: -1
+        nproc: 32768
+        nofile: 100000
+

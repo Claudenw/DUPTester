@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  foo:
+    image: cass-image-[v1]
+    container_name: cass_N1
+    command: bash -c '/usr/bin/supervisord'
+    networks:
+      cassandra_single:
+        ipv4_address: 192.168.0.2
+    volumes:
+        - [vol_dir]/persistent/data/n1data:/var/lib/cassandra
+        - [vol_dir]/persistent/log/n1log:/var/log/cassandra
+        - [vol_dir]/persistent/consolelog/n1consolelog:/var/log/supervisor
+    environment:
+        - CASSANDRA_CONFIG=/cassandra/conf
+        - CASSANDRA_CLUSTER_NAME=dev_cluster1
+        - CASSANDRA_LOGGING_LEVEL=DEBUG
+    expose:
+        - 7000
+        - 7001
+        - 7199
+        - 9042
+        - 9160
+    ulimits:
+        memlock: -1
+        nproc: 32768
+        nofile: 100000
+
+networks:
+    driver: bridge
+    ipam:
+        driver: default
+        config:
+            - subnet: 192.168.0.1/24
+

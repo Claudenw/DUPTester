@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  foo:
+    image: cass-image-v1
+  bar:
+    image: cass-image-v2
+  baz:
+    image: cass-image-v3
+    profiles:
+      - 3node
+
+        -
+    """
+         self.subnet = subnet
+         self.node_name_prefix = node_name_prefix
+         self.network_name = network_name
+         
+         def generate_node_config(self, image, container_name_prefix, node_id, start_interval, num_seeds, is_seed,
+                             persistent_dir):
+        seed_config = """
+            - CASSANDRA_SEEDS="""
+        for i in range(2, num_seeds + 2):
+            seed_config = seed_config + self.subnet + str(i) + ","
+
+        seed_depends = ""
+        if not is_seed:
+            seed_depends = """
+        depends_on:"""
+            for i in range(1, num_seeds + 1):
+                seed_depends = seed_depends + """
+                - """ + self.node_name_prefix + str(i)
+
+        node_config = """
+    DC3N""" + str(node_id) + """:
+        container_name: """ + container_name_prefix + "_N" + str(node_id) + """
+        image: """ + image + """
+        command: bash -c 'sleep """ + str(start_interval) + """ && /usr/bin/supervisord'
+        networks:
+            """ + self.network_name + """:
+                ipv4_address: """+ self.subnet + str(node_id+1) + """
+        volumes:
+            - """ + persistent_dir + """/persistent/data/n""" + str(node_id) + """data:/var/lib/cassandra
+            - """ + persistent_dir + """/persistent/log/n""" + str(node_id) + """log:/var/log/cassandra
+            - """ + persistent_dir + """/persistent/consolelog/n""" + str(node_id) + """consolelog:/var/log/supervisor
+        environment:
+            - CASSANDRA_CONFIG=/cassandra/conf
+            - CASSANDRA_CLUSTER_NAME=dev_cluster""" + seed_config + """
+            - CASSANDRA_LOGGING_LEVEL=DEBUG""" + seed_depends + """
+        expose:
+            - 7000
+            - 7001
+            - 7199
+            - 9042
+            - 9160
+        ulimits:
+            memlock: -1
+            nproc: 32768
+            nofile: 100000
+        """
+ 
+        config_tail = """
+networks:
+    """+ self.network_name +""":
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: """ + self.subnet + """1/24
+        """
