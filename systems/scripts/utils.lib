@@ -12,6 +12,12 @@ function dir_name() {
   echo $dir
 }
 
-export WORKING_DIR=`dir_name ${PWD}/$0`
+export WORKING_DIR=`dir_name $0`
 export BRANCH=$(basename ${WORKING_DIR})
 export docker_pfx=$(basename $(dirname  ${WORKING_DIR}))
+
+echo "*********************"
+echo WORKING DIR = ${WORKING_DIR}
+echo Branch = ${BRANCH}
+echo docker_pfx = ${docker_pfx}
+echo "*********************"

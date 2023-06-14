@@ -1,16 +1,11 @@
 #!/bin/bash
 
-export URL="https://github.com/apache/flink.git"
-export trunk="master"
-export name="flink"
-export build_cmd="mvn clean package"
-
 ##
 ## clone the master directory if necessary
 ##
 if [ ! -d ${WORKING_DIR}/../git ]
 then
-  git clone ${URL} ${WORKING_DIR}/../git
+  git clone ${GIT_URL} ${WORKING_DIR}/../git
   if [ $? -ne 0 ]
 	then
 		echo "git ${trunk} clone failed"

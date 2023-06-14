@@ -3,17 +3,6 @@
 source $(dirname $0)/config.lib
 source $(dirname $0)/../scripts/utils.lib
 
-echo WORKING_DIR=${WORKING_DIR}
-echo BRANCH=${BRANCH}
-echo docker_pfx=${docker_pfx}
-#  branch contains systems subdirectory
-
-if [ `grep -c /systems/${BRANCH}/git ../../.gitignore` -eq 0 ]
-then
-  echo /systems/${BRANCH}/\*\*/${name} >> ../../.gitignore
-  echo /systems/${BRANCH}/git >> ../../.gitignore
-fi
-
 if [ -z "$1" ]
 then
   echo "Version must be specified on the command line"
