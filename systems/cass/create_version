@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source $(dirname $0)/utils.lib
+source $(dirname $0)/config.lib
+source $(dirname $0)/../scripts/utils.lib
 
 if [ -z "$1" ]
 then
@@ -23,12 +24,16 @@ then
 fi
 
 rsync -v ${WORKING_DIR}/template/build-image/* ${WORKING_DIR}/${BRANCH}/build-image
-mv ${WORKING_DIR}/${BRANCH}/build-image/compile-src ${WORKING_DIR}/${BRANCH}
+rsync -v ${WORKING_DIR}/../scripts/templates/* ${WORKING_DIR}/${BRANCH}
 chmod ugo+x ${WORKING_DIR}/${BRANCH}/compile-src
-mv ${WORKING_DIR}/${BRANCH}/build-image/build-docker-image  ${WORKING_DIR}/${BRANCH}
 chmod ugo+x ${WORKING_DIR}/${BRANCH}/build-docker-image
 
 ${WORKING_DIR}/${BRANCH}/compile-src
-${WORKING_DIR}/${BRANCH}/build-docker-image
+if [ $? -ne 0 ]
+then
+	echo "compile-src failed"
+	exit 1
+fi
+
 
 

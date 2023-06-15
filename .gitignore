@@ -1,3 +1,4 @@
+/systems/old_cass
 .idea
 .project
 nohup.out
@@ -5,6 +6,8 @@ nohup.out
 *.log
 *.gz
 *.tar
-systems/cass/**/cassandra/
-systems/cass/git/
 **/_pycache_/
+/systems/flink/git
+/systems/flink/**/flink
+/systems/cass/git
+/systems/cass/**/cassandra

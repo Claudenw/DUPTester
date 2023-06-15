@@ -52,10 +52,10 @@ then
 	exit 1
 fi
 
-${build_cmd}
+echo ${build_cmd} | bash -e
 if [ $? -ne 0 ]
 then
-	echo "maven build failed"
+	echo "'${build_cmd}' build failed"
 	exit 1
 fi
 

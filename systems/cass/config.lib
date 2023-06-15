@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export GIT_URL="https://github.com/apache/cassandra.git"
+export trunk=master
+export name="cassandra"
+export build_cmd="ant realclean ; ant"
