@@ -50,7 +50,7 @@ fi
 
 if [ `grep -c "/systems/${1}/\\*\\*/${2}" ${WORKING_DIR}/../../.gitignore` -eq 0 ]
 then
-  echo "/systems/${1}/\*\*/${2}" >> ${WORKING_DIR}/../../.gitignore
+  echo "/systems/${1}/**/${2}" >> ${WORKING_DIR}/../../.gitignore
 fi
 
 echo "Edit ${DEST_DIR}/config.lib"

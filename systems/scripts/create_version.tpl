@@ -34,11 +34,6 @@ then
 	echo "compile-src failed"
 	exit 1
 fi
-${WORKING_DIR}/${BRANCH}/build-docker-image
-if [ $? -ne 0 ]
-then
-	echo "build-docker-image failed"
-	exit 1
-fi
+
 
 
