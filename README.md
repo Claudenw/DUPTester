@@ -1,3 +1,7 @@
+This is an attempt at building a tool based on the work identified in https://sysartifacts.github.io/sosp2021/summaries/duptester.
+
+# ORIGINAL README below
+  
 **DUPTester reproduces results in our paper's section 6.1 Table 5.**
 
   # Getting started:
